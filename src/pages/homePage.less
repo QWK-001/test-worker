@@ -1,0 +1,230 @@
+.container {
+  position: relative;
+  height: 376px;
+
+  .bgImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: bottom;
+  }
+
+  .heroHeader {
+    left: 50% !important;
+    transform: translate(-50%) !important;
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .heroHeaderControls {
+      display: flex;
+      justify-content: space-between;
+
+      .loginIcon::after {
+        position: absolute;
+        top: -27px;
+        left: 50%;
+        width: 26px;
+        height: 20px;
+        content: '';
+        background: url('../assets/login-icon.png') no-repeat center center /
+          26px !important;
+        background-size: 26px 20px; /* 背景图片的宽度和高度 */
+        filter: brightness(0);
+        transform: translate(-50%);
+      }
+    }
+  }
+
+  .joinNow {
+    position: absolute;
+    bottom: 14px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.cjBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animationPopup {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  line-height: normal;
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 700;
+  background: #000;
+  border-radius: 25px;
+  padding: 8px 30px;
+  border: none;
+  font-size: 22px;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  line-height: normal;
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 700;
+  background: var(--green);
+  padding: 8px 30px;
+  border: none;
+  font-size: 22px;
+  border-radius: 50px;
+  text-align: center;
+  height: fit-content;
+  filter: drop-shadow(0 4px 0 var(--primary-button-shadow-color));
+  animation: jellyEffect 0.6s ease-in-out; /* 添加动画 */
+  animation-delay: 0.12s;
+
+  .buttonContent {
+    font-size: 2.75rem;
+  }
+}
+
+/* 果冻动画效果 */
+@keyframes jelly-effect {
+  0% {
+    transform: scale(0.8);
+  }
+
+  30% {
+    transform: scale(1.4);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+
+  .backgroundPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: 300px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 0;
+
+    .homeContent {
+      max-width: 770px;
+      padding: 0 1.25rem 1.75rem;
+      margin: 0 auto;
+
+      .homeContentPlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 1rem;
+
+        .homeContentPlayTitle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          line-height: normal;
+          text-transform: uppercase;
+          padding: 1.6rem 0;
+          font-weight: 300;
+          font-size: 30px;
+        }
+
+        .homeContentPlayImgs {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 15px;
+          overflow: hidden;
+
+          .preloadBlur {
+            // flex:1;
+            // width: calc(25% - 0.5rem);
+            // overflow: hidden;
+            padding: 5px;
+
+            .lpImage {
+              border-radius: 13px;
+              max-width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+
+      .homeContentPurchase {
+        padding-bottom: 2rem;
+
+        .homeContentPurchaseTitle {
+          margin: 1.3rem auto;
+          font-size: 4rem;
+          font-weight: 800;
+          line-height: 86%;
+          text-align: center;
+          text-transform: uppercase;
+        }
+
+        .homeContentPurchaseLink {
+          width: max-content;
+          padding: 0.5rem 0 0.2rem;
+          margin: 1rem auto;
+          font-size: 2rem;
+          font-weight: 600;
+          color: var(--green);
+          text-align: center;
+          text-transform: uppercase;
+          cursor: pointer;
+          border-bottom: 2px solid var(--green);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .container {
+    height: 486px;
+    position: relative;
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+}

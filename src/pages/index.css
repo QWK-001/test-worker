@@ -1,0 +1,80 @@
+/* 精准隐藏横向滚动条 */
+::-webkit-scrollbar:horizontal {
+  height: 0 !important; /* 关键属性 */
+  background: transparent !important;
+  display: none !important;
+}
+
+/* 同时隐藏滚动条轨道和滑块 */
+::-webkit-scrollbar-thumb:horizontal {
+  display: none !important;
+}
+
+::-webkit-scrollbar-track-piece:horizontal {
+  display: none !important;
+}
+
+/* 全局强制隐藏所有滚动条 */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari/Edge */
+}
+
+:root {
+  color: var(--white);
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: 'Outfit Variable', Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  background-color: var(--black);
+
+  --color-purple: #411c59;
+  --color-purple-70: rgba(65, 28, 89, 70%);
+  --color-purple-50: rgba(65, 28, 89, 50%);
+  --color-magenta: #fe00b7;
+  --nav-arrow-height: 16px;
+  --footer-height: 4.225rem;
+  --header-height: 2vh;
+  --overlay-backdrop-color: rgb(0 0 0 / 85%);
+  --overlay-backdrop-color-70: rgb(0 0 0 / 70%);
+  --black: #000;
+  --white: #fff;
+  --orange: #eb9b00;
+  --yellow: #ffc600;
+  --green: #01db80;
+  --red: #ff0024;
+  --disabled: #676767;
+  --next-green: #00a45f;
+  --second-green: #00ff12;
+  --switcher-border: #fedd1d;
+  --switcher-switch-bg: #f7ae00;
+  --nav-active-item: #ffd800;
+  --form-purple: #d7a2fa;
+  --iris-purple: #924cbf;
+  --dark-violet: #7c00cc;
+  --royal-purple: #7e00d0;
+  --primary-button-shadow-color: #008633;
+  --app-width: 100%;
+  --container: 1100px;
+  --color-sweep: #01db80;
+  --color-social: #ffc600;
+  --color-basic-black: #000;
+  --color-silver: #aebebe;
+  --color-bronze: #f5a984;
+  --color-white: #fff;
+  --animation-timing: 0.22s;
+  --tooltip-index: 200;
+  --available-height: 100vh;
+  --scrollbar-width: 10px;
+  --slide-swipe-duration: 0.3s;
+  --container-width: 1110px;
+}

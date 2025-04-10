@@ -1,0 +1,58 @@
+.animationPopup {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  line-height: normal;
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 700;
+  background: #000;
+  border-radius: 25px;
+  padding: 8px 30px;
+  border: none;
+  font-size: 22px;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  line-height: normal;
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 700;
+  // background: var(--green);
+  padding: 8px 30px;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  height: fit-content;
+  font-size: 1.3rem;
+  animation: jelly-effect 0.6s ease-in-out; /* 添加动画 */
+  animation-delay: 0.12s;
+}
+
+/* 果冻动画效果 */
+@keyframes jelly-effect {
+  0% {
+    transform: scale(0.8);
+  }
+
+  30% {
+    transform: scale(1.4);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

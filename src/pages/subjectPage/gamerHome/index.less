@@ -1,0 +1,159 @@
+.gamerHome {
+  padding: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  margin: 0 auto;
+
+  .image-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  // 当屏幕宽度 ≥ 1100px 时固定显示5列
+  @media (min-width: 1100px) {
+    .image-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .grid-item {
+    position: relative;
+    aspect-ratio: 2/3;
+  }
+
+  .responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .skeleton-item {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 15px !important;
+  }
+}
+
+// 样式补充
+.custom-loader {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.grid-item {
+  position: relative;
+  min-height: 300px; // 根据图片比例设置
+}
+
+.skeleton-item {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+
+.card-style {
+  margin-bottom: var(--gap);
+  background-color: rgb(128, 128, 128);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 1rem;
+  width: 7rem;
+  height: 9.625rem;
+  animation: jelly-effect 0.6s ease-in-out; /* 添加果冻动画 */
+  animation-fill-mode: both; /* 确保动画结束后保持最终状态 */
+  transition: 0.2s border linear;
+}
+
+.card-skeleton {
+  display: flex;
+  margin-bottom: var(--gap);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: skeleton-glitter 1.5s infinite;
+  border-radius: 1rem;
+  background: linear-gradient(
+      120deg,
+      #434544 30%,
+      #606160 38%,
+      #606160 40%,
+      #434544 48%
+    )
+    100% 0;
+  background-size: 200% 200%;
+  width: 7rem;
+  height: 9.625rem;
+}
+
+.games-grid {
+  --gap: 1.5%;
+
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap);
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.games-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem auto 2.5rem;
+}
+
+.games-title-icon {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0.25rem;
+  object-fit: contain;
+}
+
+.games-title-text {
+  margin: 0;
+  font-size: 1.375rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+// 果冻特效
+@keyframes jelly-effect {
+  0% {
+    transform: scale(0.8);
+  }
+
+  30% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes skeleton-glitter {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
