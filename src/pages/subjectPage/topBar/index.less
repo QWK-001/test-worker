@@ -1,0 +1,229 @@
+.controls {
+  display: flex;
+  position: relative;
+}
+
+.homeControls {
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  justify-content: center;
+  width: 100%;
+  height: calc(
+    var(--header-content-height) + var(--header-pad-top) +
+      var(--header-pad-bottom)
+  );
+  pointer-events: none;
+  padding: var(--header-pad-top) var(--header-pad-x) var(--header-pad-bottom);
+}
+
+.crownBadge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  margin-inline-end: 0.5rem;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  border: 3px solid var(--balance-border);
+  border-radius: 50%;
+}
+
+.reactCardFlip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.reactCardFlipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px; /* 设置 3D 视角 */
+  transform-style: preserve-3d; /* 保持 3D 效果 */
+  transition: transform 0.6s ease-in-out; /* 平滑翻转动画 */
+}
+
+.reactCardFront,
+.reactCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 隐藏背面 */
+  display: flex; /* 确保内容居中 */
+  align-items: center;
+  justify-content: center;
+}
+
+.reactCardFront {
+  transform: rotateY(0deg); /* 正面 */
+}
+
+.reactCardBack {
+  transform: rotateY(180deg); /* 背面 */
+}
+
+.showFront {
+  transform: rotateY(0deg); /* 显示正面 */
+}
+
+.showBack {
+  transform: rotateY(180deg); /* 显示背面 */
+}
+
+.innerCircle {
+  --progress-color: #b8aaf2;
+
+  border: 2px solid #bcbbba;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crownIcon {
+  z-index: 2;
+  width: 60%;
+  margin-bottom: 2px;
+}
+
+.percentages {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.balancePanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: fit-content;
+  margin-right: 0.5rem;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: var(--black);
+  padding: 2px 0.15rem 2px 0.8rem;
+  border: 2px solid var(--balance-border);
+  border-radius: 4rem;
+  transition: all var(--animation-timing);
+}
+
+.balancePanelLeft,
+.balancePanelBalance {
+  margin-top: 1px;
+  margin-right: 0.7rem;
+  font-weight: 800;
+}
+
+.balancePanelLeft {
+  position: relative;
+  top: -3px;
+  font-size: 2rem;
+}
+
+.balancePanelBalance {
+  margin-right: auto;
+  font-size: 1.4rem;
+}
+
+.balancePanelRight {
+  margin-left: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balancePanelAdd {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--white);
+  background-color: var(--balance-btn);
+  padding: 0 0 3px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.gameTypeSwitcher {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 4.625rem;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: var(--black);
+  padding: 2px;
+  border: 2px solid var(--switcher-border);
+  border-radius: 4rem;
+}
+
+.gameTypeSwitcherInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--switcher-bg);
+  border-radius: 4rem;
+}
+
+.gameTypeSwitch {
+  position: absolute;
+  top: 0;
+  left: var(--switcher-position);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  font-size: 1.3125rem;
+  font-weight: 900;
+  line-height: 1.3rem;
+  color: var(--white);
+  text-transform: uppercase;
+  border-radius: 50%;
+  transition: all var(--animation-timing);
+}
+
+.gameTypeSwitcherDecoration {
+  position: absolute;
+  top: -1.4rem;
+  display: flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--black);
+  place-items: center;
+  transition: color var(--animation-timing);
+}
+
+.gameTypeSwitcherCoin {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.gameTypeSwitcherCoin > img {
+  width: 100%;
+}
+
+@media only screen and (orientation: landscape),
+  only screen and (min-width: 769px) {
+  .balancePanel {
+    width: fit-content;
+    min-width: 238px;
+  }
+}

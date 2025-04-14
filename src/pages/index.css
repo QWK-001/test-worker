@@ -5,6 +5,11 @@
   display: none !important;
 }
 
+.no-scroll {
+  overflow: hidden !important; /* 禁止滚动 */
+  height: 100vh; /* 防止页面内容超出视口 */
+}
+
 /* 同时隐藏滚动条轨道和滑块 */
 ::-webkit-scrollbar-thumb:horizontal {
   display: none !important;
@@ -25,6 +30,7 @@
 }
 
 :root {
+  /* 全局字体和颜色 */
   color: var(--white);
   font-weight: 400;
   line-height: 1.5;
@@ -37,15 +43,11 @@
   text-size-adjust: 100%;
   background-color: var(--black);
 
+  /* 颜色变量 */
   --color-purple: #411c59;
   --color-purple-70: rgba(65, 28, 89, 70%);
   --color-purple-50: rgba(65, 28, 89, 50%);
   --color-magenta: #fe00b7;
-  --nav-arrow-height: 16px;
-  --footer-height: 4.225rem;
-  --header-height: 2vh;
-  --overlay-backdrop-color: rgb(0 0 0 / 85%);
-  --overlay-backdrop-color-70: rgb(0 0 0 / 70%);
   --black: #000;
   --white: #fff;
   --orange: #eb9b00;
@@ -55,6 +57,13 @@
   --disabled: #676767;
   --next-green: #00a45f;
   --second-green: #00ff12;
+  --color-sweep: #01db80;
+  --color-social: #ffc600;
+  --color-basic-black: #000;
+  --color-silver: #aebebe;
+  --color-bronze: #f5a984;
+
+  /* 边框和背景 */
   --switcher-border: #fedd1d;
   --switcher-switch-bg: #f7ae00;
   --nav-active-item: #ffd800;
@@ -63,18 +72,62 @@
   --dark-violet: #7c00cc;
   --royal-purple: #7e00d0;
   --primary-button-shadow-color: #008633;
+  --overlay-backdrop-color: rgb(0 0 0 / 85%);
+  --overlay-backdrop-color-70: rgb(0 0 0 / 70%);
+
+  /* 尺寸变量 */
+  --nav-arrow-height: 16px;
+  --footer-height: 4.225rem;
+  --header-height: 2vh;
   --app-width: 100%;
   --container: 1100px;
-  --color-sweep: #01db80;
-  --color-social: #ffc600;
-  --color-basic-black: #000;
-  --color-silver: #aebebe;
-  --color-bronze: #f5a984;
-  --color-white: #fff;
-  --animation-timing: 0.22s;
-  --tooltip-index: 200;
+  --container-width: 1110px;
   --available-height: 100vh;
   --scrollbar-width: 10px;
+
+  /* 动画和过渡 */
+  --animation-timing: 0.22s;
   --slide-swipe-duration: 0.3s;
-  --container-width: 1110px;
+  --keyframe-duration: 1s;
+  --transition-duration: 0.3s;
+
+  /* Header 相关 */
+  --header-content-height: 42px;
+  --header-pad-top: 1.6rem;
+  --header-pad-bottom: 0.5rem;
+  --header-pad-x: 1rem;
+  --calc-header-height: calc(
+    var(--header-content-height) + var(--header-pad-top) +
+      var(--header-pad-bottom)
+  );
+
+  /* 层级 */
+  --tooltip-index: 200;
+}
+
+/* 主题颜色 */
+[data-theme='yellow'] {
+  --app-background: #ffc600;
+  --balance-border: #eb9b00;
+  --balance-btn: #ffc600;
+  --switcher-border: #eb9b00;
+  --switcher-bg: #6d3c00;
+  --game-info: #ffc600;
+  --footer-color: #ffc600;
+  --nav-active-item: #ffc600;
+  --switcher-position: 0;
+}
+
+[data-theme='green'] {
+  --app-background: #01db80;
+  --balance-border: #00a45f;
+  --balance-btn: #00ff12;
+  --switcher-border: #00a45f;
+  --switcher-bg: #033e25;
+  --switcher-position: calc(100% - 2.125rem);
+  --game-info: #11f910;
+  --footer-color: #00ff12;
+  --footer-icon: #00ff12;
+  --nav-active-item: #01db80;
+  --avatar-position: rotateY(0deg);
 }

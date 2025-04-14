@@ -25,11 +25,18 @@ const Modal: React.FC<ModalProps> = ({
     if (isVisible) {
       setIsRendered(true);
       setIsClosing(false);
+      document.body.classList.add('no-scroll'); // 添加禁止滚动的类
     } else if (isRendered) {
       setIsClosing(true); // 触发关闭动画
-      const timer = setTimeout(() => setIsRendered(false), 300); // 动画结束后移除模态框
+      const timer = setTimeout(() => {
+        setIsRendered(false);
+        document.body.classList.remove('no-scroll'); // 移除禁止滚动的类
+      }, 300); // 动画结束后移除模态框
       return () => clearTimeout(timer); // 清除定时器
     }
+    return () => {
+      document.body.classList.remove('no-scroll'); // 确保在组件卸载时移除类
+    };
   }, [isVisible, isRendered]);
 
   if (!isRendered) return null;

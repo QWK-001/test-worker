@@ -1,0 +1,146 @@
+/* 弹窗从目标位置出现的动画 */
+@keyframes slide-in-from-target {
+  0% {
+    transform: translate(var(--target-x, 0), var(--target-y, 0)) scale(0.1); /* 从目标位置缩小 */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, -20%) scale(1); /* 回到正常位置 */
+    opacity: 1;
+  }
+}
+
+/* 弹窗关闭时吸入目标位置的动画 */
+@keyframes slide-out-to-target {
+  0% {
+    transform: translate(0, -20%) scale(1); /* 从正常位置开始 */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--target-x, 0), var(--target-y, 0)) scale(0.1); /* 吸入到目标位置 */
+    opacity: 0;
+  }
+}
+
+/* modal-container 动画样式 */
+.modal-container.slide-in {
+  animation: slide-in-from-target 0.5s ease-in-out forwards;
+}
+
+.modal-container.slide-out {
+  animation: slide-out-to-target 0.5s ease-in-out forwards;
+}
+
+/* 其他样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 80%); /* 半透明背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 弹窗容器样式 */
+.modal-container {
+  border-radius: 15px;
+  width: 500px;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 10%);
+}
+
+.offer-layout {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+
+  .offer-bg-image {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translate(0, -30%);
+    z-index: 0;
+  }
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: 80%;
+  top: -82%;
+  width: 15%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.modal-content {
+  padding: 16px;
+  position: relative;
+}
+
+.reward {
+  font-size: 34.8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+}
+
+.reward-1 {
+  position: relative;
+  top: 70px;
+}
+
+.reward-2 {
+  position: relative;
+  top: 161px;
+}
+
+.get-free {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5%;
+  font-size: 0.4em;
+  line-height: 1em;
+}
+
+.amount,
+.gc-amount {
+  line-height: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.coin-img {
+  display: flex;
+  min-width: 0.8em;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 4%;
+}
+
+.timer {
+  position: relative;
+  text-align: center;
+  top: 210px;
+  font-weight: bolder;
+}

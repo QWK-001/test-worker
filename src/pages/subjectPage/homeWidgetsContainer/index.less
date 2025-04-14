@@ -1,0 +1,77 @@
+.homeWidgetsContainer {
+  position: absolute;
+  bottom: 0.5rem;
+  width: 100%;
+}
+
+.homeWidgetsContainer .homeWidgetsPosition {
+  left: 1rem;
+  max-width: var(--container-width, 1110px);
+  margin: 0 auto;
+}
+
+.home-widgets {
+  display: flex;
+  flex-flow: wrap-reverse;
+  padding: 0 15px;
+}
+
+.home-widgets .home-widget {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.home-widgets .home-widget .circle-parent {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+}
+
+.home-widgets .home-widget .circle-parent .circle {
+  filter: drop-shadow(rgba(0, 0, 0, 25%) 0 4px 4px);
+  cursor: pointer;
+  background-color: rgb(65, 28, 89);
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-image: initial;
+  border-radius: 50%;
+}
+
+.home-widgets .home-widget .circle-parent > img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.home-widgets .home-widget .circle-parent .timer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--black);
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.7rem;
+  border-radius: 1.5rem;
+  padding-inline: 1rem;
+  padding-block: 0.2rem;
+  white-space: nowrap;
+}
+
+.home-widgets .home-widget .circle-parent * {
+  transition: 0.1s ease-in-out;
+}

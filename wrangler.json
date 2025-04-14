@@ -10,9 +10,9 @@
   },
   "upload_source_maps": true,
   "assets": {
-  "directory": "dist", 
-  "include": ["​**​/*"],
-  "exclude": ["​**​/*.map"], 
+    "directory": "dist",
+    "include": ["​**​/*"],
+    "exclude": ["​**​/*.map"],
     "not_found_handling": "single-page-application"
   }
 }
