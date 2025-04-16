@@ -1,12 +1,16 @@
-import logo from '@/assets/logo_bk.svg';
-import { mockGames } from '@/mock/mockData';
+import logo from '@/assets/logo@2x.png';
+import { mockGameList } from '@/mock/mockData';
 import Footer from '@/pages/footer';
 import { useState } from 'react';
 import styles from './homePage.less';
+import AccountModal from './Login/accountModal';
+import LoginModal from './Login/loginModal';
 
 import { Button, Modal } from '@/components/index';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from 'antd';
+
+import bannerImg from '@/assets/banner.png';
+import girlImg from '@/assets/img_1@3x.png';
 
 interface HomePageProps {
   onLogin: () => void; // 登录回调
@@ -44,25 +48,15 @@ export default function HomePage({ onLogin }: HomePageProps) {
     <div>
       <div className={styles.container}>
         <picture>
-          <source
-            media="(max-width: 768px)"
-            srcSet="https://static.crowncoinscasino.com/production/assets/banner/page-landing/theme-new_default_landing/banner-1740997883626/mobile.webp"
-          />
-          <img
-            src="https://static.crowncoinscasino.com/production/assets/banner/page-landing/theme-new_default_landing/banner-1740997882958/desktop.webp"
-            alt="background"
-            className={styles.bgImg}
-          />
+          <source media="(max-width: 768px)" srcSet={bannerImg} />
+          <img src={bannerImg} alt="background" className={styles.bgImg} />
         </picture>
 
         <div className={styles.heroHeader}>
-          <div
-            className={styles.appLog}
-            style={{ position: 'relative', left: '30px' }}
-          >
-            <img src={logo} />
+          <div className={styles.appLog}>
+            <img style={{ width: '50%', margin: '40px 0 0 40px' }} src={logo} />
           </div>
-          <div
+          {/* <div
             className={styles.heroHeaderControls}
             style={{ position: 'relative', right: '30px' }}
           >
@@ -83,7 +77,7 @@ export default function HomePage({ onLogin }: HomePageProps) {
             >
               LOG IN
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* TODO 点击弹窗注册组件 */}
@@ -108,7 +102,7 @@ export default function HomePage({ onLogin }: HomePageProps) {
             visibility: 'visible',
           }}
         ></div>
-        <div
+        {/* <div
           className={styles.backgroundPattern}
           style={{
             filter:
@@ -118,7 +112,7 @@ export default function HomePage({ onLogin }: HomePageProps) {
             backgroundImage:
               'url(https://crowncoinscasino.com/assets/pattern-BsQJmy0E.svg)',
           }}
-        ></div>
+        ></div> */}
         <div className={styles.content}>
           <div className={styles.homeContent}>
             <div className={styles.homeContentPlay}>
@@ -126,11 +120,15 @@ export default function HomePage({ onLogin }: HomePageProps) {
                 <img
                   alt="TOP GAMES image"
                   src="https://static.crowncoinscasino.com/production/assets/game-category/TOPGAMES/imageFile-1724225168471.png"
-                  style={{ width: '28px', margin: '2px' }}
+                  style={{
+                    width: '28px',
+                    margin: '2px',
+                    filter: 'hue-rotate(90deg)',
+                  }}
                 />
                 <p style={{ margin: '0 1rem', textAlign: 'center' }}>
                   TOP{' '}
-                  <span style={{ color: '#ffc600', fontWeight: '700' }}>
+                  <span style={{ color: '#01DB80', fontWeight: '700' }}>
                     Free-to-play{' '}
                   </span>
                   Casino STYLE GAMES
@@ -138,11 +136,15 @@ export default function HomePage({ onLogin }: HomePageProps) {
                 <img
                   alt="TOP GAMES image"
                   src="https://static.crowncoinscasino.com/production/assets/game-category/TOPGAMES/imageFile-1724225168471.png"
-                  style={{ width: '28px', margin: '2px' }}
+                  style={{
+                    width: '28px',
+                    margin: '2px',
+                    filter: 'hue-rotate(90deg)',
+                  }}
                 ></img>
               </div>
               <div className={styles.homeContentPlayImgs}>
-                {mockGames.map((game) => (
+                {mockGameList.map((game) => (
                   <div key={game.id} className={styles.preloadBlur}>
                     <picture>
                       <source
@@ -150,7 +152,7 @@ export default function HomePage({ onLogin }: HomePageProps) {
                         srcSet={game.srcSet}
                       />
                       <img
-                        alt={game.description}
+                        alt={''}
                         className={styles.lpImage}
                         loading="lazy"
                         src={game.src}
@@ -173,20 +175,17 @@ export default function HomePage({ onLogin }: HomePageProps) {
                 className={styles.homeContentPurchaseLink}
                 onClick={openModal}
               >
-                it's always <span style={{ color: '#fff' }}>free</span> to play
+                it's always free to play
               </div>
               <div style={{ textAlign: 'center' }}>
                 <picture>
-                  <source
-                    srcSet="https://crowncoinscasino.com/assets/girl_with_phone-CpCtg39B.png"
-                    type="image/png"
-                  />
+                  <source srcSet={girlImg} type="image/png" />
                   <img
                     style={{ height: 'auto', maxWidth: '100%' }}
                     alt="Girl with a phone"
                     className="home__content-purchase-hero-img"
                     loading="lazy"
-                    src="https://crowncoinscasino.com/assets/girl_with_phone-CpCtg39B.png"
+                    src={girlImg}
                   />
                 </picture>
               </div>
@@ -262,229 +261,18 @@ export default function HomePage({ onLogin }: HomePageProps) {
         </div>
       </Modal>
       {/* 通过企业注册弹窗 */}
-      <Modal
+      <AccountModal
         isVisible={isAccountModalVisible}
-        title="Create account"
         onClose={closeAccountModal}
-        width="90vw"
-        style={{ maxWidth: '600px' }}
-      >
-        <div style={{ textAlign: 'center', fontWeight: '600' }}>
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Sign Up with Apple</span>
-              </div>
-            }
-            onClick={closeAccountModal}
-            bgColor="#ffffff"
-            style={{ color: '#000000', width: '70%', marginBottom: '20px' }}
-          />
-
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Sign Up with Google</span>
-              </div>
-            }
-            onClick={closeAccountModal}
-            bgColor="#ffffff"
-            style={{ color: '#000000', width: '70%', marginBottom: '20px' }}
-          />
-
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Sign Up with Facebook</span>
-              </div>
-            }
-            onClick={closeAccountModal}
-            bgColor="#0042ff"
-            style={{ color: '#ffffff', width: '70%', marginBottom: '20px' }}
-          />
-          <Button
-            text={<span>Sign Up with Email</span>}
-            onClick={closeAccountModal}
-            bgColor="#008633"
-            style={{ color: '#ffffff', width: '70%', marginBottom: '20px' }}
-          />
-
-          <div>
-            <span>Already have an account?</span>
-            <span
-              onClick={() => {
-                closeAccountModal();
-                openLoginModal();
-              }}
-              style={{
-                cursor: 'pointer',
-                marginLeft: '.5rem',
-                color: '#01db80',
-                fontWeight: 700,
-                textDecoration: 'underline',
-                textTransform: 'uppercase',
-              }}
-            >
-              Log in
-            </span>
-          </div>
-        </div>
-      </Modal>
+        onLoginClick={openLoginModal}
+      />
       {/* 登录弹窗 */}
-      <Modal
+      <LoginModal
         isVisible={isLoginModalVisible}
-        title="Log in"
         onClose={closeLoginModal}
-        width="90vw"
-        style={{ maxWidth: '500px' }}
-      >
-        <div style={{ textAlign: 'center' }}>
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Log in with Apple</span>
-              </div>
-            }
-            bgColor="#ffffff"
-            style={{ color: '#000000', width: '70%', marginBottom: '20px' }}
-          />
-
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Log in with Google</span>
-              </div>
-            }
-            bgColor="#ffffff"
-            style={{ color: '#000000', width: '70%', marginBottom: '20px' }}
-          />
-
-          <Button
-            text={
-              <div className={styles.cjBtn}>
-                <img
-                  className="iconImg"
-                  src={require('@/assets/login-icon.png')}
-                  style={{ width: '20px', marginRight: '10px' }}
-                />
-                <span>Log in with Facebook</span>
-              </div>
-            }
-            bgColor="#0042ff"
-            style={{ color: '#ffffff', width: '70%', marginBottom: '20px' }}
-          />
-
-          <div
-            style={{
-              display: 'flex',
-              columnGap: '.5rem',
-              alignItems: 'center',
-              margin: '0 auto',
-              width: '70%',
-            }}
-          >
-            <hr style={{ flex: 1, color: '#FFFFFF' }}></hr>
-            <span
-              style={{
-                fontSize: '2rem',
-                fontWeight: 400,
-                lineHeight: 1,
-                textTransform: 'uppercase',
-              }}
-            >
-              Or
-            </span>
-            <hr style={{ flex: 1, color: '#FFFFFF' }}></hr>
-          </div>
-
-          <div style={{ margin: '0 auto', width: '70%' }}>
-            <p
-              style={{
-                textAlign: 'left',
-                margin: 0,
-                padding: '0 15px',
-                fontSize: 14,
-                fontWeight: 700,
-              }}
-            >
-              EMAIL
-            </p>
-            <Input placeholder="Email Address" />
-
-            <p
-              style={{
-                textAlign: 'left',
-                margin: '20px 0 0',
-                padding: '0 15px',
-                fontSize: 14,
-                fontWeight: 700,
-              }}
-            >
-              PASSWORD
-            </p>
-            <Input.Password
-              placeholder="Enter Password"
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
-          </div>
-          <Button
-            onClick={handleLogin}
-            text={
-              <div className={styles.cjBtn}>
-                <span>LOG IN</span>
-              </div>
-            }
-            bgColor="#3bdb80"
-            style={{ color: '#ffffff', width: '70%', margin: '35px 0' }}
-          />
-          <div style={{ fontSize: '.8rem' }}>
-            <span>Forgot your password?</span>
-            <span
-              onClick={() => {
-                closeLoginModal();
-                openResetPasswordModal();
-              }}
-              style={{
-                cursor: 'pointer',
-                marginLeft: '.5rem',
-                color: '#01db80',
-                fontWeight: 700,
-                textDecoration: 'underline',
-                textTransform: 'uppercase',
-              }}
-            >
-              Click here
-            </span>
-          </div>
-        </div>
-      </Modal>
+        onForgotPasswordClick={openResetPasswordModal}
+        onLogin={handleLogin}
+      />
 
       {/* 重置密码 */}
       <Modal
@@ -501,6 +289,10 @@ export default function HomePage({ onLogin }: HomePageProps) {
           </p>
           <Input placeholder="Email Address" />
           <Button
+            onClick={() => {
+              closeResetPasswordModal();
+              openLoginModal();
+            }}
             text={
               <div className={styles.cjBtn}>
                 <span>RESET PASSWORD</span>

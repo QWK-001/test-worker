@@ -1,4 +1,4 @@
-import footerLogo from '@/assets/logo.svg';
+import footerLogo from '@/assets/scLogo@3x.png';
 import React from 'react';
 import './footer.less';
 
@@ -16,7 +16,37 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="footer-row">
+      <div style={{ marginBottom: '1rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h1
+            style={{ fontSize: '2rem', fontWeight: 'bold', color: '#FFA801' }}
+          >
+            Making sure everyone plays responsibly
+          </h1>
+          <h6 style={{ color: '#fff', fontSize: '1rem', marginTop: '10px' }}>
+            Find out more on our dedicated Responsible Social Play page.
+          </h6>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <div className="btn-box">
+            <a
+              href="/pages/responsible-social-play"
+              target="_blank"
+              className="footer-btn theme-bg theme-border"
+              style={{ width: '80%', fontSize: '2rem' }}
+            >
+              GO TO RESPONSIBLE SOCIAL GAMING
+            </a>
+            <img
+              src="https://static.crowncoinscasino.com/production/assets/cms/18plus.png"
+              className="adult-icon"
+              alt="Icon"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="footer-row">
         <div className="footer-column footer-main-column">
           <h1 className="heading-text theme-text">
             Making sure everyone plays responsibly
@@ -117,7 +147,7 @@ const Footer: React.FC = () => {
             reserved.
           </p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };

@@ -1,3 +1,33 @@
+import game4 from '@/assets/alis.png';
+import game3 from '@/assets/bank.png';
+import game2 from '@/assets/five.png';
+import game1 from '@/assets/four.png';
+export const mockGameList = [
+  {
+    id: 1,
+    title: 'Game 1',
+    srcSet: game1,
+    src: game1,
+  },
+  {
+    id: 2,
+    title: 'Game 2',
+    srcSet: game2,
+    src: game2,
+  },
+  {
+    id: 3,
+    title: 'Game 3',
+    srcSet: game3,
+    src: game3,
+  },
+  {
+    id: 4,
+    title: 'Game 4',
+    srcSet: game4,
+    src: game4,
+  },
+];
 export const mockGames = [
   {
     id: 1,

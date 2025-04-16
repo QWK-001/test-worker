@@ -133,7 +133,7 @@ const TopBar: React.FC<TopBarProps> = () => {
 
             <picture
               className={styles.gameTypeSwitcherCoin}
-              style={{ cursor: 'pointer' }} // 添加鼠标指针样式
+              style={{ cursor: 'pointer' }}
             >
               {activeCoin === 'social' ? (
                 <img alt="Social Coin" src={ccodIcon} />
